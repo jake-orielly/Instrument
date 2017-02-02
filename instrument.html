@@ -15,12 +15,13 @@
 <script>
     var square, color, red, green, blue;
     var frequency = 0.3;
+    var audio = new Audio('ding.mp3');
     for (var i = 0; i < 10; i++) {
         red = Math.sin(frequency * i)*127 + 128;
         green = Math.sin(frequency * i + 2)*127 + 128;
         blue = Math.sin(frequency * i + 4)*127 + 128;
         color = rgbToColor(red,green,blue);
-        square = "<div class='square' style='background:"
+        square = "<div class='square' onclick='audio.play();'style='background:"
         square += color;
         square += "'></div>";
         document.write(square);
