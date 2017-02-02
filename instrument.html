@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .square {
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin: 10px;
+    }
+</style>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+    var square, color;
+    for (var i = 0; i < 10; i++) {
+        color = "#ADA"
+        square = "<div class='square' style='background:"
+        square += color;
+        square += "'></div>";
+        document.write(square);
+    }
+    
+    function rgbToColor (r,g,b) {
+        return "rgb(" + Math.round(r) + "," + Math.round(g) + "," + Math.round("b") + ")";
+    }
+</script>
+</body>
+</html>
