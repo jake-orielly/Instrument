@@ -26,6 +26,18 @@
         document.write(square);
     }
     
+    document.onkeypress = function (e) {
+        e = e || window.event;
+        
+        var validKeys = [97,115,100,102,104,106,107,108];
+        var key = e.keyCode;
+        
+        for (var i = 0; i < validKeys.length; i++) {
+            if (validKeys[i] == key) 
+                playKey(i);
+        }
+    }
+    
     function rgbToColor (r,g,b) {
         return "rgb(" + Math.round(r) + "," + Math.round(g) + "," + Math.round(b) + ")";
     }
