@@ -20,7 +20,7 @@
         green = Math.sin(frequency * i + 2)*127 + 128;
         blue = Math.sin(frequency * i + 4)*127 + 128;
         color = rgbToColor(red,green,blue);
-        square = "<div class='square' onclick='playKey(" + i + ")'style='background:"
+        square = "<div class='square' id='key" + i + "' onclick='playKey(" + i + ")'style='background:"
         square += color;
         square += "'></div>";
         document.write(square);
@@ -29,9 +29,8 @@
     document.onkeypress = function (e) {
         e = e || window.event;
         
-        var validKeys = [97,115,100,102,104,106,107,108];
+        var validKeys = [97,115,100,102,103,104,106,107,108,59];
         var key = e.keyCode;
-        
         for (var i = 0; i < validKeys.length; i++) {
             if (validKeys[i] == key) 
                 playKey(i);
@@ -44,7 +43,15 @@
     
     function playKey(given) {
         var audio = new Audio("notes/File" + given + ".wav");
+        document.getElementById("key" + given).style.width = "90px";
+        document.getElementById("key" + given).style.height = "90px";
+        setTimeout(function () {
+            document.getElementById("key" + given).style.width = "80px";
+            document.getElementById("key" + given).style.height = "80px";
+        }, 200);
         audio.play();
+        //document.getElementById("key" + given).style.width = "80px";
+        //document.getElementById("key" + given).style.height = "80px";
     }
 </script>
 </body>
